@@ -1,0 +1,4 @@
+---
+title: Ingame Wiki.
+---
+Hello

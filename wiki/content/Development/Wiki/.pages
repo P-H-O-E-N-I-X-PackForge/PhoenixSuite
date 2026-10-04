@@ -1,0 +1,5 @@
+nav:
+  - 'Home': 'index.md'
+  - 'Markdown': 'Markdown'
+  - 'Theming': 'Theming'
+  - 'Ingame Wiki': 'Ingame-Wiki'
