@@ -360,18 +360,5 @@ it acts as a neutral baseline.
 
 ---
 
-## 15. Empty / edge-case documents
-
-For separate, additional test files (not this one), also verify:
-
-- An entirely empty document (zero blocks, no crash).
-- A document that is only whitespace/newlines.
-- A document that is a single unterminated code fence (``` with no closing ```` ``` ````) - should consume to
-  end of document as code.
-- A document that is a single unterminated container (`:::note` with no closing `:::`) - should consume to
-  end of document as the container's body.
-- A heading with no text after the `#` characters (e.g. `#` alone with nothing following - confirm it still
-  requires at least one space plus content per `MarkdownPatterns.HEADING`, otherwise it falls through to a
-  paragraph starting with a literal `#`).
 
 ```
