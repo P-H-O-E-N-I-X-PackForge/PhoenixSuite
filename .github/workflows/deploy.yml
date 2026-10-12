@@ -20,9 +20,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - run: npm install
 
       - name: Install wiki dependencies
         working-directory: wiki
@@ -32,16 +38,13 @@ jobs:
         working-directory: wiki
         run: mkdocs build --strict
 
-      - name: Assemble site
-        run: |
-          mkdir -p _site
-          cp index.html _site/
-          cp -r assets _site/
-          cp -r wiki/site _site/wiki
+      - run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: dist
 
   deploy:
     needs: build

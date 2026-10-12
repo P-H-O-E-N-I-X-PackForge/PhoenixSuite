@@ -1,10 +1,10 @@
 site_name: Phoenix Suite Wiki
-site_url: https://omicron-industries.github.io/PhoenixSuite/wiki/
+site_url: https://p-h-o-e-n-i-x-packforge.github.io/PhoenixSuite/wiki/
 repo_name: PhoenixSuite
-repo_url: https://github.com/Omicron-Industries/PhoenixSuite
+repo_url: https://github.com/P-H-O-E-N-I-X-PackForge/PhoenixSuite
 edit_uri: blob/main/wiki/content/
 docs_dir: content
-site_dir: site
+site_dir: ../public/wiki
 
 theme:
   name: material
