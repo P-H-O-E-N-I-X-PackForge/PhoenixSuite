@@ -1,29 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import "./style.css";
 import Home from "./pages/Home";
-import { useState, useEffect } from "react";
 
 function App() {
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved) return saved;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  });
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const [palette, setPalette] = useState(
-    () => localStorage.getItem("phoenix-suite-palette") || "sakura",
-  );
-  useEffect(() => {
-    document.documentElement.setAttribute("data-palette", palette);
-    localStorage.setItem("phoenix-suite-palette", palette);
-  }, [palette]);
   return (
     <>
       <header class="site-header">
@@ -54,53 +33,6 @@ function App() {
               Wiki
             </a>
           </nav>
-          <div class="header-controls">
-            <div
-              className="palette-picker"
-              role="group"
-              aria-label="Color theme"
-            >
-              {[
-                {
-                  id: "sakura",
-                  title: "Sakura (purple + pink)",
-                  label: "Sakura palette",
-                },
-                {
-                  id: "ember",
-                  title: "Ember (purple + orange)",
-                  label: "Ember palette",
-                },
-                {
-                  id: "void",
-                  title: "Void (purple + cyan)",
-                  label: "Void palette",
-                },
-              ].map((p) => (
-                <button
-                  key={p.id}
-                  className={`palette-swatch ${p.id === palette ? "is-active" : ""}`}
-                  data-palette={p.id}
-                  title={p.title}
-                  aria-label={p.label}
-                  onClick={() => setPalette(p.id)}
-                />
-              ))}
-            </div>
-            <button
-              class="theme-toggle"
-              id="themeToggle"
-              aria-label="Toggle light/dark mode"
-              title="Toggle light/dark mode"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              {theme === "dark" ? (
-                <span className="icon-moon">🌙</span>
-              ) : (
-                <span className="icon-sun">☀️</span>
-              )}
-            </button>
-          </div>
         </div>
       </header>
 
