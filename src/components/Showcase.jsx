@@ -18,7 +18,7 @@ const leaf = {
   excavate:
     "A vein mine/place/replace mod that nothing explicitly relies on.",
   essentials:
-    "Coremod for PFT hosting all the pack specific wild ideas. Chronicles has optional compatability into PhoenixCore's internal research system named Conflux of Research.",
+    "An essential commands mod that nothing relies on.",
   fission:
     "A powerful and configurable nuclear fission addon for GT:M. Phoenixcore relies on it.",
   tesla:
