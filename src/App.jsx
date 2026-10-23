@@ -1,8 +1,22 @@
 import { Route, Routes } from "react-router-dom";
 import "./style.css";
 import Home from "./pages/Home";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
   return (
     <>
       <header class="site-header">
@@ -19,6 +33,22 @@ function App() {
           </a>
 
           <nav class="site-nav">
+            <a
+                href={`${import.meta.env.BASE_URL}wiki/`}
+                className="nav-cta"
+                id="navWiki"
+            >
+              Wiki
+            </a>
+            {}
+            <button
+                className="theme-toggle"
+                onClick={toggleTheme}
+                aria-label="Toggle dark/light mode"
+            >
+              <span className="icon-sun">☀️</span>
+              <span className="icon-moon">🌙</span>
+            </button>
             <a href={`${import.meta.env.BASE_URL}#projects`} id="navProjects">
               Projects
             </a>
@@ -26,9 +56,9 @@ function App() {
               How it fits
             </a>
             <a
-              href={`${import.meta.env.BASE_URL}wiki/`}
-              class="nav-cta"
-              id="navWiki"
+                href={`${import.meta.env.BASE_URL}wiki/`}
+                className="nav-cta"
+                id="navWiki"
             >
               Wiki
             </a>
@@ -38,7 +68,7 @@ function App() {
 
       <main class="flex-1">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>}/>
         </Routes>
       </main>
 
