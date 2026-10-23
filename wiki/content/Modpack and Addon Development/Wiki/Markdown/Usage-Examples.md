@@ -39,7 +39,7 @@ There are also some more "special" callouts.
 ` ```js ``` `
 Current languages supported are: JavaScript, Rust, Hot Chocolate, Python, TypeScript, C, C++, C#, Kotlin, and Java.
 
-More can be added, if you want to learn how to do that check out [Language Parsing](./Language-Parsing.md).
+More can be added, if you want to learn how to do that check out [Language Parsing](Programming_Languages.md).
 
 ## Inline Markdown
 
@@ -49,10 +49,11 @@ More can be added, if you want to learn how to do that check out [Language Parsi
 | **Keycap**           | `<kbd>Ctrl</kbd>`                                                          | Renders a styled keycap.                                                                                   |
 | **Colors & Scaling** | `{#RRGGBB}text{reset}`, `{scale:N}`                                        | Hex color runs and inline scaling (applies inline as well as on its own line).                             |
 | **Smart Quotes**     | `"`                                                                        | Auto-alternates open/close curly quotes (skipped inside code spans).                                       |
-| **Inline Image**     | `[img:ns:path,W,H]`                                                        | Inline image with optional width and height (defaults to 48×48).                                           |
+| **Inline Image**     | `[img:ns:path,W,H,R]`                                                      | Inline image with optional width,height,rotation (defaults to 48×48:0).                                    |
 | **Item Icon**        | `[item:ns:id]` or `[item:ns:id\|tooltip text]`                             | Renders an item icon with an optional tooltip.                                                             |
 | **Links**            | `[label](url)`                                                             | Supports HTTP(S), wiki deep-links (`wiki:namespace/basePath#pageId`) or hover tooltips (`tip:hover text`). |
 | **Image Links**      | `[img:ns:path](anything)`                                                  | Allows using an inline image as a clickable link label.                                                    |
+| **Typewriter Text**  | `{type:speed:click:repeat}Text {/type}`                                    | Renders typewriter text that writes out the text out slowly. Allows other *Markdown* inside it's blocks.   |
 | **404 Handling**     | Automatic                                                                  | Unresolved wiki links or initial deep-links display a themed page with a return link.                      |
 
 ## Ingame Visuals

@@ -45,7 +45,7 @@ function App() {
       <footer class="site-footer">
         <div class="wrap footer-inner">
           <span id="footerText">
-            Phoenix Suite — a solo project by Phoenixvine.
+            Phoenix Suite; project maintained by Phoenixvine and fueled by the community.
           </span>
           <a href={`${import.meta.env.BASE_URL}wiki/`} id="footerWikiText">
             Wiki
