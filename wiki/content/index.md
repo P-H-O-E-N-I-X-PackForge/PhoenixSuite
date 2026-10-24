@@ -60,11 +60,15 @@ are included below.
 
 3. Open a terminal inside the wiki/content folder.
 
-4. Run the installation from requirements.txt command.
+4. Setup a venv instance.
+`python -m venv .venv`
 
-5. Setup a venv instance.
+5. Activate that instance
+    - Windows: `.venv\Scripts\activate`
+    - Linux/MacOS: `source .venv/bin/activate`
 
-6. Activate that instance
+6. Run the installation from requirements.txt command.
+`pip install -r requirements.txt`
 
 7. Move back to the wiki folder via `cd ..`.
 
