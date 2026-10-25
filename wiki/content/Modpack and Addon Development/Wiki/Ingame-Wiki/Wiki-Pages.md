@@ -1,4 +1,6 @@
-
+---
+title: Wiki Pages.
+---
 
 Editing wiki pages can be either done ingame or in the files. Editing them ingame sends them to the consumer mod's config folder.
 

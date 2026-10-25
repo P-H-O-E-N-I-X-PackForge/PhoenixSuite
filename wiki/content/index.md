@@ -31,18 +31,18 @@ Most wiki maintenance effort will be put into this section.
 ### Development
 This section dives deeper than the other two as it explains the underlying systems and code
 that power the PhoenixSuite mods for *potential new devs*. It hopes to teach getting started working in the mods, 
-where potential bugs might lie, explaining some design decisions, and sharing future plans with these mods.
+where potential bugs might lie, explaining some design decisions, and sharing plans with these mods.
 
 ## Why we maintain this wiki.
 
 The **PhoenixSuite** wiki is a passion project driven by people who want to *become better at technical writing*.
-**AI** will never be used to write these pages, it's use as a tool in the **PhoenixSuite** has it's line drawn here.
+**AI** will never be used to write these pages, it used as a tool in the **PhoenixSuite** has its line drawn here.
 
-All curseforge/modrinth modpage descriptions are also included in the no **AI** rule.
+All CurseForge/Modrinth modpage descriptions are also included in the no **AI** rule.
 
 Coming away from that serious note, this wiki is a place of using our abilities to hopefully help 
-users of all amounts of experience enjoy and improve our mods. If you want to contribute or have advice
-towards maintaining these systems *feel free to come talk to us* on discord or open an issue on one of 
+users of all experience amounts enjoy and improve our mods. If you want to contribute or have advice
+towards maintaining these systems, *feel free to come talk to us* on discord or open an issue on one of 
 the PhoenixSuite's GitHub repos.
 
 ## How to contribute to the wiki.
@@ -51,10 +51,10 @@ We enjoy working with people throughout many skill levels, and **we would be gla
 
 Moreover, we are still in *early stages* and could take any help we could get.
 
-This wiki uses **Material** and the **MKDocs** plugin to rapidly iterate and the steps to set that up for yourself
+This wiki uses **Material** and the **MKDocs** plugin to rapidly iterate, and the steps to set that up for yourself
 are included below.
 
-1. Install Python 3.0.
+1. Install Python 3.
 
 2. Clone this repository.
 
