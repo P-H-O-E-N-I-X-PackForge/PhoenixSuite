@@ -10,7 +10,7 @@ First, we need to clarify a few key classes.
 
  - `RichSpan`: This class handles inline parsing/rendering such as **bold** or *italic* ingame.
  - `RichBlock`: This class handles block level rendering such as parapgrahs or headings.
- - `WikiMarkdownParser`: The actual parser that takes in the information of the above two and sends it to the next class.
+ - `WikiMarkdownParser`: The actual parser that produces a parsed result and sends it to the next class.
  - `WikiRichTechRenderer`: The rendering engine that takes in the information sent to it by the above to give information to an actual render call.
 
 This will be a very basic example. **Phoenix Chronicles** and **Phoenix Archives** are good examples for going more in depth.
