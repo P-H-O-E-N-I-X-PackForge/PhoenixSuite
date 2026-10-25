@@ -5,6 +5,14 @@ title: Using Wiki's Rich text engine.
 **Wiki's** **RichText**/**Markdown** parsing/rendering can be used outside **Wiki**. This page will show how to 
 set up the strings to be sent to the parser, then render the actual formatting in your screen.
 
+First, we need to clarify a few key classes.
+
+
+ - `RichSpan`: This class handles inline parsing/rendering such as **bold** or *italic* ingame.
+ - `RichBlock`: This class handles block level rendering such as parapgrahs or headings.
+ - `WikiMarkdownParser`: The actual parser that takes in the information of the above two and sends it to the next class.
+ - `WikiRichTechRenderer`: The rendering engine that takes in the information sent to it by the above to give information to an actual render call.
+
 This will be a very basic example. **Phoenix Chronicles** and **Phoenix Archives** are good examples for going more in depth.
 
 For this example, rich text is parsed and rendered using one Screen class. 
