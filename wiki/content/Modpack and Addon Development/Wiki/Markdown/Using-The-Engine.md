@@ -3,10 +3,9 @@ title: Using Wiki's Rich text engine.
 ---
 
 **Wiki's** **RichText**/**Markdown** parsing/rendering can be used outside **Wiki**. This page will show how to 
-set up the strings to be sent to the parser, then render the actual formatting in your screen.
+set up the strings to be sent to the parser, render the actual formatting in your screen, and add onto the engine.
 
 First, we need to clarify a few key classes.
-
 
  - `RichSpan`: This class handles inline parsing/rendering such as **bold** or *italic* ingame.
  - `RichBlock`: This class handles block level rendering such as parapgrahs or headings.
@@ -18,7 +17,7 @@ This will be a very basic example. **Phoenix Chronicles** and **Phoenix Archives
 For this example, rich text is parsed and rendered using one Screen class. 
 However, you can have a separate file parse the Markdown and then pass that into your screen's renderer.
 
-There are five parts to using the engine.
+There are six parts to using the engine.
 
 1. Making a list of `RichBlock` entries.
 2. Passing the string into `WikiMarkdownParser`.
@@ -26,6 +25,7 @@ There are five parts to using the engine.
 4. Iterating through the rendered `RichBlock` entries with click actions 
 for interactive **Markdown** elements such as links.
 5. Optionally overwriting the base resloc of texture/image handling of `wiki` to your own mod's assets.
+6. Optionally add onto the engine as noted on the bottom of this page.
 
 ```java
 public class CustomWikiWidgetScreen extends Screen {
@@ -131,3 +131,86 @@ public class CustomWikiWidgetScreen extends Screen {
 
 8. Handling clipboard actions.
 
+You can also add onto the engine.
+
+There are three entry points. 
+
+- `BlockParserRegistry.DEFAULT.register(new BlockParser() {}`
+Handles registry for adding more block level elements to the parser. Some default examples include callouts and headings.
+```java
+public static void registerCustomBlock() {
+    BlockParserRegistry.DEFAULT.register(new BlockParser() {
+        @Override
+        public boolean accepts(String line) {
+            // (1)
+            return line.startsWith(":::notice");
+        }
+
+        @Override
+        public BlockParserResult parse(List<String> lines, int index, List<String> footnotes) {
+            String line = lines.get(index);
+            String message = line.replace(":::notice", "").trim();
+
+            // (2)
+            RichBlock block = new RichBlock.Callout("notice", message, List.of());
+            return new BlockParserResult(block, 1); // (3)
+        }
+    });
+}
+```
+
+    1. Trigger for the new block level entry.
+
+    2. Link your new trigger to an existing entry. (Existing ones can be found here [Usage Examples](./Usage-Examples.md).)
+
+    3. How many lines the new entry consumes when active.
+
+- `InlineHandlerRegistry.DEFAULT.register("custom_highlight", (matcher, spans) -> {}`
+Handles registry for adding more inline elements to the parser. Default examples include bold or italic.
+```java
+public static void registerCustomInline() {
+        // (1)
+        InlineHandlerRegistry.DEFAULT.register("custom_highlight", (matcher, spans) -> {
+            String content = matcher.group(1);
+            // (2)
+            spans.add(new RichSpan.Text(content, Style.EMPTY.withColor(0xFFFF5555)));
+        });
+    }
+```
+
+    1. Register and name your new handler pattern.
+    
+    2. Add a custom text span or interactive elements such as mob rendering or custom link types.
+
+- `BlockRendererRegistry.DEFAULT.register(MyCustomBlock.class, new BlockRenderer<MyCustomBlock>() {}`
+This is where you go through for creating your own parsed elements outside block/inline elements. A basic example is provided below.
+```java
+public record MyCustomBlock(String data) implements RichBlock {
+        @Override public List<RichSpan> spans() { return List.of(); }
+    }
+
+    public static void registerCustomRenderer() {
+        // (1)
+        BlockRendererRegistry.DEFAULT.register(MyCustomBlock.class, new BlockRenderer<MyCustomBlock>() {
+            @Override
+            public int measure(RenderContext ctx, MyCustomBlock block, int y, int maxW) {
+                // (2)
+                return 20; 
+            }
+
+            @Override
+            public int render(RenderContext ctx, MyCustomBlock block, int x, int y, int maxW) {
+                // (3)
+                ctx.g.fill(x, y, x + maxW, y + 20, 0xFF333333);
+                ctx.g.drawString(ctx.font, block.data(), x + 4, y + 6, 0xFFFFFFFF, false);
+                return y + 20; 
+            }
+        });
+    }
+```
+
+    1. Register your custom block type.
+
+    2. How much pixels in height your custom block takes.
+
+    3. Your own rendering logic taking the defined trigger and using it. 
