@@ -39,7 +39,7 @@ There are also some more "special" callouts.
 ` ```js ``` `
 Current languages supported are: JavaScript, Rust, Hot Chocolate, Python, TypeScript, C, C++, C#, Kotlin, and Java.
 
-More can be added, if you want to learn how to do that check out [Language Parsing](Programming_Languages.md).
+More can be added, if you want to learn how to do that check out [Language Parsing](Programming-Languages.md).
 
 ## Inline Markdown
 

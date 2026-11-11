@@ -1,5 +1,7 @@
 ---
-title: Chronicles
+title: Getting Started Using Chronicles
 ---
 
-The start of gameplay facing docs for Phantasia
+This is the getting started page
+Handling how to use the questbook, how to open the qb, where to look for more info
+Link the page for importing quests/progress

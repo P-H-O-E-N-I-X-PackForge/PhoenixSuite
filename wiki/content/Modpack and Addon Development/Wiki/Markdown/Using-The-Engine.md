@@ -2,6 +2,8 @@
 title: Using Wiki's Rich text engine.
 ---
 
+
+## How to add onto the base renderer
 **Wiki's** **RichText**/**Markdown** parsing/rendering can be used outside **Wiki**. This page will show how to 
 set up the strings to be sent to the parser, render the actual formatting in your screen, and add onto the engine.
 
@@ -131,6 +133,7 @@ public class CustomWikiWidgetScreen extends Screen {
 
 8. Handling clipboard actions.
 
+## How to add onto the engine itself
 You can also add onto the engine.
 
 There are three entry points. 

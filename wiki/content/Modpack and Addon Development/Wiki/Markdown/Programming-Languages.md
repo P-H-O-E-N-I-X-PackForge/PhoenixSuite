@@ -2,6 +2,8 @@
 title: Programming Examples
 ---
 
+
+## How to add a new language to the parser.
 **PhoenixWiki** supports **Markdown** parsing for many programming languages.
 
 The default ones include `rust`, `C`, `C#`, `HotChocolate`, `JavaScript`, `TypeScript`, Kotlin`, `Python`, and `Java`.
